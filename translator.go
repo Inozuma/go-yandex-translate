@@ -73,6 +73,7 @@ func (tr *Translator) Languages(ui string) (*Languages, error) {
 	}
 
 	if resp.Code != 200 && resp.Message != "" {
+		return nil, NewError(resp.Code, resp.Message)
 	}
 
 	return resp.Languages, nil
